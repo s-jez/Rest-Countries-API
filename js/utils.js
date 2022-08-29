@@ -17,8 +17,8 @@ const createFlagItem = (country) => {
   const imgDivContainer = document.createElement("div");
   const img = document.createElement("img");
   img.src = country.flagsURL;
-  img.width = 160;
-  img.height = 98;
+  img.width = 250;
+  img.height = 156;
 
   imgDivContainer.appendChild(img);
 
@@ -27,16 +27,20 @@ const createFlagItem = (country) => {
 
 const createCountryItem = (country) => {
   const li = document.createElement("li");
+  li.classList.add("card__country");
 
   const liName = document.createElement("span");
   liName.innerText = country.name;
-
   li.appendChild(createFlagItem(country));
-  li.appendChild(liName);
+  const divContainer = document.createElement("div");
+  divContainer.classList.add("card__description");
+  divContainer.appendChild(liName);
 
-  li.appendChild(createInfoItem("Population", country.population));
-  li.appendChild(createInfoItem("Region", country.region));
-  li.appendChild(createInfoItem("Capital", country.capital));
+  divContainer.appendChild(createInfoItem("Population", country.population));
+  divContainer.appendChild(createInfoItem("Region", country.region));
+  divContainer.appendChild(createInfoItem("Capital", country.capital));
+
+  li.appendChild(divContainer);
 
   return li;
 };
