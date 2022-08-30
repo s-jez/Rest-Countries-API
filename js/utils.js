@@ -46,7 +46,7 @@ const createCountryItem = (country) => {
 };
 
 const createListElement = (countries) => {
-  const ul = document.createElement("ul");
+  const ul = document.querySelector("ul");
   countries.forEach((country) => {
     ul.appendChild(createCountryItem(country));
   });
