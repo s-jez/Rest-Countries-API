@@ -36,9 +36,10 @@ const renderAllCountries = () => {
 renderAllCountries();
 
 INPUT_FILTER.addEventListener("change", (ev) => {
-  if (INPUT_FILTER.value != "") {
+  let queryValue = ev.target.value.toLowerCase().trim();
+  if (queryValue != "") {
     countriesData = [];
-    fetch(`${API_URL_NAME}/${ev.target.value}`)
+    fetch(`${API_URL_NAME}/${queryValue}`)
       .then((response) => response.json())
       .then(
         (country) =>
@@ -64,9 +65,10 @@ INPUT_FILTER.addEventListener("change", (ev) => {
   }
 });
 INPUT_DROPDOWN.addEventListener("change", (ev) => {
-  if (INPUT_DROPDOWN.value != "") {
+  let queryValue = ev.target.value.toLowerCase().trim();
+  if (queryValue != "") {
     countriesData = [];
-    fetch(`${API_URL_REGION}/${ev.target.value}`)
+    fetch(`${API_URL_REGION}/${queryValue}`)
       .then((response) => response.json())
       .then(
         (country) =>
