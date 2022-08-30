@@ -3,6 +3,7 @@
 */
 :root {
   --white: hsl(0, 0%, 100%);
+  --text: #000;
   --light-gray: hsl(0, 0%, 98%);
   --dark-gray: hsl(0, 0%, 52%);
   --dark-blue-light: hsl(200, 15%, 8%);
@@ -60,6 +61,10 @@ ul {
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
+li a {
+  text-decoration: none;
+  color: var(--text);
+}
 .card__country {
   width: 250px;
   height: 310px;
@@ -89,6 +94,7 @@ ul {
 li img {
   aspect-ratio: 250 / 156;
 }
+
 /* 
   Filters
 */

@@ -27,11 +27,15 @@ const createFlagItem = (country) => {
 
 const createCountryItem = (country) => {
   const li = document.createElement("li");
+
+  const aEl = document.createElement("a");
+  aEl.href = `?country=${country.name}`;
+
   li.classList.add("card__country");
 
   const liName = document.createElement("span");
   liName.innerText = country.name;
-  li.appendChild(createFlagItem(country));
+  aEl.appendChild(createFlagItem(country));
   const divContainer = document.createElement("div");
   divContainer.classList.add("card__description");
   divContainer.appendChild(liName);
@@ -40,7 +44,8 @@ const createCountryItem = (country) => {
   divContainer.appendChild(createInfoItem("Region", country.region));
   divContainer.appendChild(createInfoItem("Capital", country.capital));
 
-  li.appendChild(divContainer);
+  aEl.appendChild(divContainer);
+  li.appendChild(aEl);
 
   return li;
 };
