@@ -125,3 +125,6 @@ option {
   font-size: 13px;
   background-color: var(--light-gray);
 }
+.hidden {
+  display: none;
+}
