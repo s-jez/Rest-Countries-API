@@ -1,6 +1,13 @@
 /*
   Global
 */
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 98%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --dark-blue-light: hsl(200, 15%, 8%);
+  --dark-blue-dark: hsl(207, 26%, 17%);
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,6 +15,9 @@
 }
 html {
   font-family: "Nunito Sans", sans-serif;
+}
+body {
+  font-size: 14px;
 }
 /*
   Header
@@ -20,7 +30,7 @@ header {
   justify-content: space-between;
   height: 70px;
   padding: 0 65px;
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--white);
   box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.5);
   margin-bottom: 15px;
 }
@@ -71,7 +81,13 @@ ul {
   font-weight: 700;
 }
 .card__description div {
-  font-size: 12px;
+  font-size: 13px;
+}
+/*
+  Images
+*/
+li img {
+  aspect-ratio: 250 / 156;
 }
 /* 
   Filters
@@ -86,22 +102,20 @@ ul {
 .filters__input {
   width: 400px;
   padding: 10px;
-  font-size: 12px;
   font-family: inherit;
   border: 0;
-  outline: 1px solid #fff;
+  outline: 1px solid var(--light-gray);
   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
 }
 .filters__dropdown {
   width: 150px;
-  font-size: 12px;
   border: 0;
-  outline: 1px solid #fff;
+  outline: 1px solid var(--light-gray);
   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
 }
 option {
   font-size: 13px;
-  background-color: #ffffff;
+  background-color: var(--light-gray);
 }
