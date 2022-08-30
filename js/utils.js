@@ -57,10 +57,16 @@ const createListElement = (countries) => {
   });
   return ul;
 };
+const createDetailElement = (countries) => {};
 
 export const renderCountries = (countries) => {
   document.querySelector("ul").innerHTML = "";
   const rootEl = document.getElementById("root");
   rootEl.appendChild(createListElement(countries));
+  console.log(countries);
+};
+export const renderCountryDetails = (countries) => {
+  const rootEl = document.getElementById("root");
+  rootEl.appendChild(createDetailElement(countries));
   console.log(countries);
 };
