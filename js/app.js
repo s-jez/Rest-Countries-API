@@ -8,6 +8,7 @@ const INPUT_FILTER = document.querySelector(".filters__input");
 const INPUT_DROPDOWN = document.querySelector(".filters__dropdown");
 
 let countriesData = [];
+let query = "";
 
 const renderAllCountries = () => {
   fetch(API_URL_ALL)
@@ -35,7 +36,6 @@ const renderAllCountries = () => {
 renderAllCountries();
 
 INPUT_FILTER.addEventListener("change", (ev) => {
-  document.querySelector("ul").innerHTML = "";
   if (INPUT_FILTER.value != "") {
     countriesData = [];
     fetch(`${API_URL_NAME}/${ev.target.value}`)
@@ -64,8 +64,7 @@ INPUT_FILTER.addEventListener("change", (ev) => {
   }
 });
 INPUT_DROPDOWN.addEventListener("change", (ev) => {
-  document.querySelector("ul").innerHTML = "";
-  if (INPUT_DROPDOWN.value != "" && INPUT_FILTER.value != "") {
+  if (INPUT_DROPDOWN.value != "") {
     countriesData = [];
     fetch(`${API_URL_REGION}/${ev.target.value}`)
       .then((response) => response.json())
