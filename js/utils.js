@@ -57,7 +57,29 @@ const createListElement = (countries) => {
   });
   return ul;
 };
-const createDetailElement = (countries) => {};
+const createDetailElement = (countries) => {
+  const li = document.createElement("li");
+  const liName = document.createElement("span");
+  liName.innerText = countries;
+
+  const divContainer = document.createElement("div");
+  divContainer.appendChild(liName);
+
+  divContainer.appendChild(createInfoItem("Native Name", countries.nativeName));
+  divContainer.appendChild(createInfoItem("Population", countries.population));
+  divContainer.appendChild(createInfoItem("Region", countries.region));
+  divContainer.appendChild(createInfoItem("Sub Region", countries.region));
+  divContainer.appendChild(createInfoItem("Capital", countries.capital));
+  divContainer.appendChild(createInfoItem("Top Level Domain", countries.tld));
+  divContainer.appendChild(createInfoItem("Currencies", countries.borders));
+  divContainer.appendChild(
+    createInfoItem("Border Countries", countries.languages)
+  );
+
+  li.appendChild(divContainer);
+
+  return li;
+};
 
 export const renderCountries = (countries) => {
   document.querySelector("ul").innerHTML = "";
