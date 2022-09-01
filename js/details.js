@@ -12,6 +12,7 @@ const renderDetailsCountry = () => {
         backToDasboard();
       }
       countries = data.map((country) => {
+        console.log(country);
         return {
           flagsURL: country.flags.png,
           name: country.name.common,

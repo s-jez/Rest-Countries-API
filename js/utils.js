@@ -60,20 +60,29 @@ const createListElement = (countries) => {
 const createDetailElement = (countries) => {
   const li = document.createElement("li");
   const liName = document.createElement("span");
-  liName.innerText = countries;
+  const aEl = document.createElement("a");
+  liName.innerText = countries[0];
 
+  aEl.appendChild(createFlagItem(countries));
   const divContainer = document.createElement("div");
-  divContainer.appendChild(liName);
-
-  divContainer.appendChild(createInfoItem("Native Name", countries.nativeName));
-  divContainer.appendChild(createInfoItem("Population", countries.population));
-  divContainer.appendChild(createInfoItem("Region", countries.region));
-  divContainer.appendChild(createInfoItem("Sub Region", countries.region));
-  divContainer.appendChild(createInfoItem("Capital", countries.capital));
-  divContainer.appendChild(createInfoItem("Top Level Domain", countries.tld));
-  divContainer.appendChild(createInfoItem("Currencies", countries.borders));
+  divContainer.appendChild(aEl);
   divContainer.appendChild(
-    createInfoItem("Border Countries", countries.languages)
+    createInfoItem("Native Name", countries[0].nativeName)
+  );
+  divContainer.appendChild(
+    createInfoItem("Population", countries[0].population)
+  );
+  divContainer.appendChild(createInfoItem("Region", countries[0].region));
+  divContainer.appendChild(createInfoItem("Sub Region", countries[0].region));
+  divContainer.appendChild(createInfoItem("Capital", countries[0].capital));
+  divContainer.appendChild(
+    createInfoItem("Top Level Domain", countries[0].tld)
+  );
+  divContainer.appendChild(
+    createInfoItem("Currencies", countries[0].currency.CLP)
+  );
+  divContainer.appendChild(
+    createInfoItem("Border Countries", countries[0].borderCountries)
   );
 
   li.appendChild(divContainer);
