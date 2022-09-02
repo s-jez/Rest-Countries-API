@@ -88,6 +88,13 @@ li a {
 .card__description div {
   font-size: 13px;
 }
+
+/*
+  Country Details
+*/
+.card__details {
+  display: flex;
+}
 /*
   Images
 */
