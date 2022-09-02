@@ -13,12 +13,12 @@ const createInfoItem = (labelName, value) => {
   return infoEl;
 };
 
-const createFlagItem = (country) => {
+const createFlagItem = (country, width, height) => {
   const imgDivContainer = document.createElement("div");
   const img = document.createElement("img");
   img.src = country.flagsURL;
-  img.width = 250;
-  img.height = 156;
+  img.width = width;
+  img.height = height;
 
   imgDivContainer.appendChild(img);
 
@@ -35,7 +35,7 @@ const createCountryItem = (country) => {
 
   const liName = document.createElement("span");
   liName.innerText = country.name;
-  aEl.appendChild(createFlagItem(country));
+  aEl.appendChild(createFlagItem(country, 250, 156));
   const divContainer = document.createElement("div");
   divContainer.classList.add("card__description");
   divContainer.appendChild(liName);
@@ -59,45 +59,57 @@ const createListElement = (countries) => {
 };
 const createDetailElement = (countries) => {
   const li = document.createElement("li");
+  li.classList.add("card__details");
   const liName = document.createElement("span");
   const aEl = document.createElement("a");
   liName.innerText = countries[0];
 
-  aEl.appendChild(createFlagItem(countries));
-  const divContainer = document.createElement("div");
-  divContainer.appendChild(aEl);
-  divContainer.appendChild(
-    createInfoItem("Native Name", countries[0].nativeName)
-  );
-  divContainer.appendChild(
-    createInfoItem("Population", countries[0].population)
-  );
-  divContainer.appendChild(createInfoItem("Region", countries[0].region));
-  divContainer.appendChild(createInfoItem("Sub Region", countries[0].region));
-  divContainer.appendChild(createInfoItem("Capital", countries[0].capital));
-  divContainer.appendChild(
-    createInfoItem("Top Level Domain", countries[0].tld)
-  );
-  divContainer.appendChild(
-    createInfoItem("Currencies", countries[0].currency.CLP)
-  );
-  divContainer.appendChild(
-    createInfoItem("Border Countries", countries[0].borderCountries)
-  );
-
-  li.appendChild(divContainer);
+  aEl.appendChild(createFlagItem(countries[0], 550, 356));
+  li.appendChild(aEl);
+  // li.appendChild(imageContainer);
+  // li.appendChild(createInfoItem("Native Name", countries[0].name));
+  // li.appendChild(createInfoItem("Population", countries[0].population));
+  // li.appendChild(createInfoItem("Region", countries[0].region));
+  // li.appendChild(createInfoItem("Sub Region", countries[0].region));
+  // li.appendChild(createInfoItem("Capital", countries[0].capital));
+  // li.appendChild(createInfoItem("Top Level Domain", countries[0].tld));
+  // li.appendChild(createInfoItem("Currencies", countries[0].currency.CLP));
+  // li.appendChild(
+  //   createInfoItem("Border Countries", countries[0].borderCountries)
+  // );
 
   return li;
+};
+const createDetailDescription = (
+  nameLabel,
+  nameValue,
+  populationLabel,
+  populationValue,
+  regionLabel,
+  regionValue,
+  subregionLabel,
+  subregionValue,
+  capitalLabel,
+  capitalValue,
+  tldLabel,
+  tldValue,
+  curLabel,
+  curValue,
+  borderLabel,
+  borderValue
+) => {
+  return li.appendChild(createListElement(""));
 };
 
 export const renderCountries = (countries) => {
   document.querySelector("ul").innerHTML = "";
-  const rootEl = document.getElementById("root");
-  rootEl.appendChild(createListElement(countries));
+  const ul = document.querySelector("ul");
+  ul.appendChild(createListElement(countries));
   console.log(countries);
 };
 export const renderCountryDetails = (countries) => {
-  const rootEl = document.getElementById("root");
-  rootEl.appendChild(createDetailElement(countries));
+  document.querySelector("ul").innerHTML = "";
+  const ul = document.querySelector("ul");
+  ul.appendChild(createDetailElement(countries));
   console.log(countries);
 };
