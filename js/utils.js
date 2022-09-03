@@ -80,25 +80,8 @@ const createDetailElement = (countries) => {
 
   return li;
 };
-const createDetailDescription = (
-  nameLabel,
-  nameValue,
-  populationLabel,
-  populationValue,
-  regionLabel,
-  regionValue,
-  subregionLabel,
-  subregionValue,
-  capitalLabel,
-  capitalValue,
-  tldLabel,
-  tldValue,
-  curLabel,
-  curValue,
-  borderLabel,
-  borderValue
-) => {
-  return li.appendChild(createListElement(""));
+const createDetailDescription = () => {
+  li.appendChild(createListElement(label, value));
 };
 
 export const renderCountries = (countries) => {

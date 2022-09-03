@@ -40,6 +40,7 @@ export const renderDetails = () => {
   countryName = searchParams.get("country");
   if (!countryName) {
     backToDasboard();
+    document.querySelector(".filters").classList.remove("hidden");
   } else {
     renderDetailsCountry();
   }
