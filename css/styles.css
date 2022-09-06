@@ -58,6 +58,7 @@ ul {
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding: 1rem;
 }
 li a {
   text-decoration: none;
